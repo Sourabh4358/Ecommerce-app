@@ -1,12 +1,12 @@
 {
-  "name": "service",
+  "name": "ecommerce-server",
   "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
+  "description": "Backend server for ChatApp",
+  "type": "module",
+  "main": "services.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "server.js",
-    "dev": "nodemon server.js"
+    "start": "node services.js",
+    "dev": "nodemon services.js"
   },
   "keywords": [],
   "author": "",
@@ -20,7 +20,9 @@
     "express": "^5.1.0",
     "jsonwebtoken": "^9.0.2",
     "mongoose": "^8.19.2",
-    "multer": "^2.0.2",
+    "multer": "^2.0.2"
+  },
+  "devDependencies": {
     "nodemon": "^3.1.10"
   }
 }

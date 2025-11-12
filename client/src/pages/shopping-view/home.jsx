@@ -1,6 +1,11 @@
+import React from 'react'
 
-function ShoppingHome() {
-    return ( <div>Shopping home</div> );
+const ShoppingHome = () => {
+  return (
+    <div>
+      Home page
+    </div>
+  )
 }
 
-export default ShoppingHome;
+export default ShoppingHome

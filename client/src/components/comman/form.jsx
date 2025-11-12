@@ -17,13 +17,7 @@ const types = {
   TEXTAREA: "textarea",
 };
 
-function CommanForm({
-  formControls,
-  formData,
-  setFormData,
-  onSubmit,
-  butttonText,
-}) {
+function CommanForm({ formControls, formData, setFormData, butttonText,onSubmit }) {
   function renderInputsByComponentType(getControlItem) {
     let element = null;
     const value = formData[getControlItem.name] || "";
@@ -49,7 +43,12 @@ function CommanForm({
 
       case types.SELECT:
         element = (
-          <Select onValueChange = {(value)=> setFormData({...formData, [getControlItem.name]:value})} value={value}>
+          <Select
+            onValueChange={(value) =>
+              setFormData({ ...formData, [getControlItem.name]: value })
+            }
+            value={value}
+          >
             <SelectTrigger className="w-full">
               <SelectValue placeholder={getControlItem.placeholder} />
             </SelectTrigger>
@@ -72,10 +71,13 @@ function CommanForm({
             name={getControlItem.name}
             placeholder={getControlItem.placeholder}
             id={getControlItem.id}
-            value = {value}
-            onChange = {event => setFormData({
-                ...formData, [getControlItem.name] : event.target.value
-            })}
+            value={value}
+            onChange={(event) =>
+              setFormData({
+                ...formData,
+                [getControlItem.name]: event.target.value,
+              })
+            }
           />
         );
         break;
@@ -101,11 +103,13 @@ function CommanForm({
   }
 
   return (
-    <form onSubmit={onsubmit}>
+   <form
+      onSubmit={onSubmit}
+    >
       <div className="flex flex-col gap-3">
         {formControls.map((controlItem) => (
           <div className="grid w-full gap-1.5" key={controlItem.name}>
-            <Label className="mb-1">{controlItem.Label}</Label>
+            <Label className="mb-1">{controlItem.label}</Label>
             {renderInputsByComponentType(controlItem)}
           </div>
         ))}
